@@ -6,21 +6,40 @@
   <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
   <script type="text/babel">
-    const SaveBtn = () => {
-      return <button>Save Changes</button>;
+    function Btn({ text, onClick, fontSize = 16 }) {
+      console.log(text, "was rendered");
+      return (
+        <button
+          onClick={onClick}
+          style={{
+            backgroundColor: "tomato",
+            color: "white",
+            padding: "10px 20px",
+            border: 0,
+            borderRadius: 10,
+            fontSize,
+          }}>
+          {text}
+        </button>
+      );
+    }
+    Btn.propTypes = {
+      text: PropTypes.string.isRequired,
+      fontSize: PropTypes.number,
     };
-    const ConfirmBtn = () => {
-      return <button>Confirm</button>;
-    };
-    const App = () => {
+    const MemorizedBtn = React.memo(Btn);
+    function App() {
+      const [value, setValue] = React.useState("Save Changes");
+      const changeValue = () => setValue("Revert Changes");
       return (
         <div>
-          <SaveBtn />
-          <ConfirmBtn />
+          <MemorizedBtn text={value} onClick={changeValue} fontSize={18} />
+          <MemorizedBtn fontSize={14} text={"Continue"} />
         </div>
       );
-    };
+    }
     const root = document.getElementById("root");
     ReactDOM.render(<App />, root);
   </script>
