@@ -1,14 +1,17 @@
+import { func } from "prop-types";
 import { useState, useEffect } from "react";
 
 function Hello() {
-  const byFn = () => {
-    console.log("bye :(");
-  };
-  const hiFn = () => {
-    console.log("created :)");
-    return byFn;
-  };
-  useEffect(hiFn, []);
+  useEffect(() => {
+    console.log("hi :)");
+    return () => console.log("bye :(");
+  }, []);
+  // useEffect(function(){
+  //   console.log("hi :)")
+  //   return function(){
+  //     console.log("bye :(")
+  //   }
+  // },[]);
   return <h1>Hello</h1>;
 }
 const App = () => {
