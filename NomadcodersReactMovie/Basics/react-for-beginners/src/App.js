@@ -2,6 +2,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./routes/Home";
 import Detail from "./routes/Detail";
 
+/*
+ *추가 작업 목표
+ * 1) Detail 화면에 내용 loading
+ * 2) API에서 받은 json을 State에 넣기
+ */
+
 function App() {
   return (
     <Router>
