@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/sosiStudy/static/css/main.f80be232.css",
+    "main.js": "/sosiStudy/static/js/main.90d59e58.js",
+    "index.html": "/sosiStudy/index.html",
+    "main.f80be232.css.map": "/sosiStudy/static/css/main.f80be232.css.map",
+    "main.90d59e58.js.map": "/sosiStudy/static/js/main.90d59e58.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f80be232.css",
+    "static/js/main.90d59e58.js"
+  ]
+}
