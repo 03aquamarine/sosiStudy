@@ -1,4 +1,4 @@
-const MyHeader = ({ headText, leftChild, rightChild }) => {
+const Header = ({ headText, leftChild, rightChild }) => {
   return (
     <header>
       <div className="head_btn_left">{leftChild}</div>
@@ -8,4 +8,4 @@ const MyHeader = ({ headText, leftChild, rightChild }) => {
   );
 };
 
-export default MyHeader;
+export default Header;
