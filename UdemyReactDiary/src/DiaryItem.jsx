@@ -12,7 +12,7 @@ const DiaryItem = ({
   const [isEdit, setIsEdit] = useState(false);
   const toggleIsEdit = () => setIsEdit(!isEdit);
   const localContentInput = useRef();
-  const [localContent, setLocalContent] = useState("");
+  const [localContent, setLocalContent] = useState(content);
 
   const handleRemove = () => {
     if (window.confirm(`${id}번째 일기를 정말 삭제하시겠습니까?`)) {
@@ -49,6 +49,7 @@ const DiaryItem = ({
         {isEdit ? (
           <>
             <textarea
+              ref={localContentInput}
               value={localContent}
               onChange={(e) => setLocalContent(e.target.value)}
             />
@@ -63,10 +64,11 @@ const DiaryItem = ({
           <button onClick={handleEdit}>수정 완료</button>
         </>
       ) : (
-        <></>
+        <>
+          <button onClick={handleRemove}>삭제하기</button>
+          <button onClick={toggleIsEdit}>수정하기</button>
+        </>
       )}
-      <button onClick={handleRemove}>삭제하기</button>
-      <button onClick={toggleIsEdit}>수정하기</button>
     </div>
   );
 };
